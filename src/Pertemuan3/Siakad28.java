@@ -5,8 +5,7 @@ public class Siakad28 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String nama, nim;
-        char kelas;
+        String nama, nim, kelas;
         byte absen;
         double nilaiKuis, nilaiTugas, nilaiUjian, nilaiAkhir;
 
@@ -15,7 +14,7 @@ public class Siakad28 {
         System.out.print("Masukkan nim: ");
         nim = input.nextLine();
         System.out.print("Masukkan kelas: ");
-        kelas = input.nextLine().charAt(0);
+        kelas = input.nextLine();
         System.out.print("Masukkan absen: ");
         absen = input.nextByte();
         
