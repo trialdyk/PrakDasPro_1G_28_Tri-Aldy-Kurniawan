@@ -8,10 +8,8 @@ public class PemilianBilangan28 {
         System.out.print("Masukkan Sebuah Angka: ");
         int angka = input.nextInt();
 
-        if(angka % 2 == 0) {
-            System.out.println("Angka "+angka+" adalah bilangan genap");
-        } else {
-            System.out.println("Angka "+angka+" adalah bilangan ganjil");
-        }
+        String hasil = angka % 2 == 0 ? "Genap" : "Ganjil";
+
+        System.out.println("Angka " + angka + " adalah " + hasil);
     }
 }
