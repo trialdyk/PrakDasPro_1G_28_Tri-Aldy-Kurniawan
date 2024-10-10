@@ -8,6 +8,8 @@ public class Pemilihan2Percobaan228 {
         int pilihan_menu;
         String member = "";
         Double harga,total_bayar = 0.0;
+        String metode_pembayaran;
+        Double potonganQris = 0.0;
 
         System.out.println("----------------------------");
         System.out.println("====== Menu Kafe JTI =======");
@@ -22,7 +24,15 @@ public class Pemilihan2Percobaan228 {
 
         System.out.print("Apakah punya member (y/n) ? = ");
         member = input28.nextLine();
+        System.out.print("Masukkan Metode Pembayaran : ");
+        metode_pembayaran = input28.nextLine();
+
         System.out.println("----------------------------");
+
+        if(metode_pembayaran.equalsIgnoreCase("qris")){
+            System.out.println("Menggunakan Qris Mendapatkan Potongan Rp.1000");
+            potonganQris = 1000.0;
+        }
 
         if(member.equalsIgnoreCase("y")){
             diskon = 0.10;
@@ -41,7 +51,7 @@ public class Pemilihan2Percobaan228 {
                 return;
             }
 
-            total_bayar = harga + (harga * diskon);
+            total_bayar = harga + (harga * diskon) - potonganQris;
             System.out.println("Total Harga Setelah Diskon = "+total_bayar);
 
         }else if(member.equalsIgnoreCase("n")){
@@ -59,7 +69,7 @@ public class Pemilihan2Percobaan228 {
                 return;
             }
 
-            System.out.println("Total Harga = "+harga);
+            System.out.println("Total Harga = "+(harga - potonganQris));
         }else{
             System.out.println("Member tidak valid");
         }
