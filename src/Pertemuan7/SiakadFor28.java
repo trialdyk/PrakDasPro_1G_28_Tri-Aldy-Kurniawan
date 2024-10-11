@@ -11,10 +11,10 @@ public class SiakadFor28 {
         for(int i = 1; i <= 10; i++){
             System.out.print("Masukkan Nilai Dari Mahasiswa Ke "+i+": ");
             nilai = sc.nextDouble();
-            if(nilai < tertinggi){
+            if(nilai > tertinggi){
                 tertinggi = nilai;
             }
-            if(nilai > terendah){
+            if(nilai < terendah){
                 terendah = nilai;
             }
         }
