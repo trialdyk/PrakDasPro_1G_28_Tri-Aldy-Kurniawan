@@ -7,6 +7,7 @@ public class SiakadFor28 {
         double nilai;
         double terendah = 100;
         double tertinggi = 0;
+        int jmlLulus = 0;
         
         for(int i = 1; i <= 10; i++){
             System.out.print("Masukkan Nilai Dari Mahasiswa Ke "+i+": ");
@@ -17,9 +18,12 @@ public class SiakadFor28 {
             if(nilai < terendah){
                 terendah = nilai;
             }
+
+            if(nilai >= 60) jmlLulus++;
         }
 
         System.out.println("Nilai Tertinggi : "+tertinggi);
         System.out.println("Nilai Terendah : "+terendah); 
+        System.out.println("Mahasiswa Lulus : "+jmlLulus);
     }
 }
