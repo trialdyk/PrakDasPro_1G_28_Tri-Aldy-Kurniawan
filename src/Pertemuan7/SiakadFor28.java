@@ -5,8 +5,8 @@ public class SiakadFor28 {
         Scanner sc = new Scanner(System.in);
 
         double nilai;
-        double terendah = 0;
-        double tertinggi = 100;
+        double terendah = 100;
+        double tertinggi = 0;
         
         for(int i = 1; i <= 10; i++){
             System.out.print("Masukkan Nilai Dari Mahasiswa Ke "+i+": ");
