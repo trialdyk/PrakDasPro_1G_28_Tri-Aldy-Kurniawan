@@ -24,8 +24,13 @@ public class SearchNilai28 {
             }
         }
 
-        System.out.println();
-        System.out.println("Nilai "+key+" Ketemu!, adalah Mahasiswa Ke-"+(hasil+1));
-        System.out.println();
+        if(hasil == -1) {
+            System.out.println("Nilai "+key+" Tidak Ketemu!");
+            return;
+        }else{
+            System.out.println("Nilai "+key+" Ketemu!, adalah Mahasiswa Ke-"+(hasil+1));
+        }
+
+       
     }
 }
