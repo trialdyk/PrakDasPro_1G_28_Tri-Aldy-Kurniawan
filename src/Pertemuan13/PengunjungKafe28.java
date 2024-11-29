@@ -11,4 +11,11 @@ public class PengunjungKafe28 {
             System.out.println(nama);
         }
     }
+
+    public static void daftarMenu(int[] harga, String... namaMenu){
+        System.out.println("Daftar Menu");
+        for(int i = 0; i < harga.length; i++){
+            System.out.println(namaMenu[i]+" : "+harga[i]);
+        }
+    }
 }
