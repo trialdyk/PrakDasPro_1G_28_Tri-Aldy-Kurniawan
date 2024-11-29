@@ -6,7 +6,7 @@ public class Kafe28 {
         Scanner sc = new Scanner(System.in);
 
 
-        Menu("Andi", true, "DISKON50");
+        Menu("Andi", true);
 
         System.out.print("Masukkan nomor menu yang anda pilih : ");
         int pilihanMenu = sc.nextInt();
@@ -14,25 +14,19 @@ public class Kafe28 {
         System.out.print("Masukkan jumlah item yang anda inginkan : ");
         int banyakItem = sc.nextInt();
 
-        int totalHarga = hitungTotalHarga(pilihanMenu,banyakItem);
+        System.out.println("Masukkan Kode Promo : ");
+        String kodePromo = sc.next();
+
+        int totalHarga = hitungTotalHarga(pilihanMenu,banyakItem,kodePromo);
 
         System.out.println("Total Harga untuk pesanan anda : " + totalHarga);
     }
 
-    public static void Menu(String namaPelanggan,boolean isMember,String kodePromo){
+    public static void Menu(String namaPelanggan,boolean isMember){
         System.out.println("Selamat datang, " + namaPelanggan + "!");
 
         if(isMember){
             System.out.println("Anda adalah member,dapatkan diskon 10% setiap pembelian");
-        }
-
-        if(kodePromo.equals("DISKON50")){
-            System.out.println("Anda mendapatkan diskon 50%");
-        }
-        else if(kodePromo.equals("DISKON30")){
-           System.out.println("Anda mendapatkan diskon 30%");
-        }else{
-            System.out.println("Kode Promo Tidak Valid");
         }
 
         System.out.println("===== Menu Resto Kafe =====");
@@ -46,11 +40,19 @@ public class Kafe28 {
         System.out.println("Silakan pilih menu yang anda inginkan.");
     }
 
-    public static int hitungTotalHarga(int pilihanMenu,int banyakItem){
+    public static int hitungTotalHarga(int pilihanMenu,int banyakItem,String kodePromo){
+
         int[] hargaItems = {15000,20000,22000,12000,10000,18000};
-
+        
         int hargaTotal = hargaItems[pilihanMenu-1] * banyakItem;
-
+        
+        if(kodePromo.equalsIgnoreCase("DISKON50")){
+            System.out.println("Anda mendapatkan diskon 50%");
+            hargaTotal -= hargaTotal * 0.5;
+        }else if(kodePromo.equalsIgnoreCase("DISKON30")){
+            System.out.println("Anda mendapatkan diskon 30%");
+            hargaTotal -= hargaTotal * 0.3;
+        }
         return hargaTotal;
     }
 }
