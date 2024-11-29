@@ -1,8 +1,22 @@
 package Pertemuan13;
 
+import java.util.Scanner;
 public class Kafe28 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
         Menu("Andi", true, "DISKON50");
+
+        System.out.print("Masukkan nomor menu yang anda pilih : ");
+        int pilihanMenu = sc.nextInt();
+
+        System.out.print("Masukkan jumlah item yang anda inginkan : ");
+        int banyakItem = sc.nextInt();
+
+        int totalHarga = hitungTotalHarga(pilihanMenu,banyakItem);
+
+        System.out.println("Total Harga untuk pesanan anda : " + totalHarga);
     }
 
     public static void Menu(String namaPelanggan,boolean isMember,String kodePromo){
@@ -30,5 +44,13 @@ public class Kafe28 {
         System.out.println("6. Mie Goreng - Rp. 18,000");
         System.out.println("===========================");
         System.out.println("Silakan pilih menu yang anda inginkan.");
+    }
+
+    public static int hitungTotalHarga(int pilihanMenu,int banyakItem){
+        int[] hargaItems = {15000,20000,22000,12000,10000,18000};
+
+        int hargaTotal = hargaItems[pilihanMenu-1] * banyakItem;
+
+        return hargaTotal;
     }
 }
