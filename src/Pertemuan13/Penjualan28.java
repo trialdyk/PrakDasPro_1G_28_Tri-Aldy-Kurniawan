@@ -5,33 +5,18 @@ public class Penjualan28 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String menu[] = {
-            "Kopi",
-            "Teh",
-            "Es Degan",
-            "Roti Bakar",
-            "Gorengan"
-        };
+        System.out.print("Masukkan Jumlah Menu : ");
+        String menu[] = new String[input.nextInt()];
+        System.out.print("Masukkan Jumlah Hari : ");
+        int jumlahHari = input.nextInt();
 
-        int jumlahHari = 7;
+        System.out.println("Masukkan Nama Nama Menu : ");
+        for(int i = 0; i < menu.length; i++) {
+            System.out.print("Menu "+(i+1)+" : ");
+            menu[i] = input.next();
+        }
 
-        int dataPenjualan[][] = {
-            {
-                20,20,25,20,10,60,10
-            },
-            {
-                30,80,40,10,15,20,15
-            },
-            {
-                5,9,20,25,10,5,45
-            },
-            {
-                50,8,17,18,10,30,6
-            },
-            {
-                15,10,16,15,10,10,55
-            }
-        };
+        int dataPenjualan[][] = new int[menu.length][jumlahHari];
 
         while(true){
             System.out.println("======= Menu ========");
@@ -93,12 +78,9 @@ public class Penjualan28 {
 
         for(int i = 0; i < dataPenjualan.length; i++) {
 
-            if(i == 0 || i == 1) {
-                System.out.print(menu[i]+"\t\t");
-            }else{
-                System.out.print(menu[i]+"\t");
-            }
-            
+
+            System.out.print(menu[i]+"\t\t");
+
             for(int j = 0; j < dataPenjualan[i].length; j++) {
                 System.out.print(dataPenjualan[i][j]+"\t\t");
             }
