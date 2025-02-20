@@ -5,6 +5,10 @@ public class Mahasiswa27 {
     String kelas;
     double ipk;
 
+    public Mahasiswa27(){
+
+    }
+
     public Mahasiswa27(String nm, String nim, double ipk, String kls) {
         nama = nm;
         this.nim = nim;

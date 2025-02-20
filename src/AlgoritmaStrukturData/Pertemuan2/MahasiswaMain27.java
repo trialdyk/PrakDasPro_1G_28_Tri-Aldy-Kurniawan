@@ -17,6 +17,6 @@ public class MahasiswaMain27 {
         mhs2.ubahIPK(3.30);
         mhs2.tampilkanInformasi();
 
-        
+        Mahasiswa27 mhs3 = new Mahasiswa27("Muhammad Rizki","2241720171",3.55,"SI 2J");
     }
 }
