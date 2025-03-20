@@ -24,4 +24,18 @@ public class Sorting27 {
         }
         System.out.println();
     }
+
+    void selectionSort() {
+        for (int i = 0; i < jumlahData; i++) {
+            int minimum = i;
+            for (int j = i + 1; j < jumlahData; j++) {
+                if (data[j] < data[minimum]) {
+                    minimum = j;
+                }
+            }
+            int temp = data[i];
+            data[i] = data[minimum];
+            data[minimum] = temp;
+        }
+    }
 }
