@@ -38,4 +38,16 @@ public class Sorting27 {
             data[minimum] = temp;
         }
     }
+
+    void insertionSort() {
+        for (int i = 1; i < jumlahData; i++) {
+            int temp = data[i];
+            int j = i - 1;
+            while (j >= 0 && data[j] > temp) {
+                data[j + 1] = data[j];
+                j--;
+            }
+            data[j + 1] = temp;
+        }
+    }
 }
