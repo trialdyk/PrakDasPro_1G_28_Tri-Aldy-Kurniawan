@@ -7,7 +7,10 @@ import AlgoritmaStrukturData.Pertemuan5.Mahasiswa;
 public class MahasiswaDemo27 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        MahasiswaBerprestasi27 list = new MahasiswaBerprestasi27();
+
+        System.out.print("Masukkan Jumlah Mahasiswa : ");
+        MahasiswaBerprestasi27 list = new MahasiswaBerprestasi27(input.nextInt());
+        input.nextLine();
 
         System.out.println("Input Data Mahasiswa : ");
         for(int i = 0; i < list.listMhs.length; i++){
@@ -30,8 +33,8 @@ public class MahasiswaDemo27 {
         System.out.print("Masukkan IPK Yang Dicari : ");
         double cari = input.nextDouble();
 
-        System.out.println("Menggunakan Sequential Search");
-        int posisi = list.sequentialSearch(cari);
+        System.out.println("Menggunakan Binary Search");
+        int posisi = list.findBinarySearch(cari, 0, list.listMhs.length - 1);
         list.tampilPosisi(cari, posisi);
         list.tampilDataSearch(cari, posisi);
     }

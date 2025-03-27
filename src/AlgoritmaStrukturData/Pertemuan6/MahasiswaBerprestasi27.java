@@ -1,8 +1,12 @@
 package AlgoritmaStrukturData.Pertemuan6;
 
 public class MahasiswaBerprestasi27 {
-    Mahasiswa27[] listMhs = new Mahasiswa27[5];
+    Mahasiswa27[] listMhs;
     int idx;
+
+    MahasiswaBerprestasi27(int jumlahMahasiswa){
+        this.listMhs = new Mahasiswa27[jumlahMahasiswa];
+    }
 
     void tambah(Mahasiswa27 m){
         if(idx < listMhs.length){
@@ -84,5 +88,20 @@ public class MahasiswaBerprestasi27 {
         }else{
             System.out.println("Data Mahasiswa Dengan IPK : " + x + " Tidak Ditemukan");
         }
+    }
+
+    int findBinarySearch(double cari,int left,int right){
+        int mid;
+        if(right >= left){
+            mid = (left + right) / 2;
+            if(listMhs[mid].ipk == cari){
+                return mid;
+            }else if(listMhs[mid].ipk < cari){
+                return findBinarySearch(cari, left, mid - 1);
+            }else{
+                return findBinarySearch(cari, mid + 1, right);
+            }
+        }
+        return -1;
     }
 }
