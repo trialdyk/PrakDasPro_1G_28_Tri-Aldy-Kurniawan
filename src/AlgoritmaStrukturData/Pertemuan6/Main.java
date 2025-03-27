@@ -13,7 +13,9 @@ public class Main {
             System.out.println("2. Tampilkan Dosen");
             System.out.println("3. Sorting ASC (Usia termuda ke tertua)");
             System.out.println("4. Sorting DSC (Usia tertua ke termuda)");
-            System.out.println("5. Keluar");
+            System.out.println("5. Cari Dosen Dari Nama");
+            System.out.println("6. Cari Dosen Dari Usia");
+            System.out.println("7. Keluar");
             System.out.print("Pilih menu: ");
             int pilihan = sc.nextInt();
             sc.nextLine();
@@ -43,6 +45,31 @@ public class Main {
                     System.out.println("Data diurutkan DSC!");
                     break;
                 case 5:
+                    System.out.print("Inputkan Nama Yang Ingin Dicari : ");
+                    String cari = sc.nextLine();
+                    int posisi = data.sequentialSearch(cari);
+                    if (posisi != -1) {
+                        System.out.println("Data bernama " + cari + " ditemukan pada posisi " + (posisi + 1));
+                        System.out.println("-------Data------");
+                        data.dataDosen[posisi].tampil();
+                    } else {
+                        System.out.println("Data tidak ditemukan!");
+                    }
+                    break;
+                case 6:
+                    System.out.print("Inputkan Usia Yang Ingin Dicari : ");
+                    int cariUsia = sc.nextInt();
+                    sc.nextLine();
+                    int posisiUsia = data.binarySearch(cariUsia, 0, data.idx - 1);
+                    if (posisiUsia != -1) {
+                        System.out.println("Data berusia " + cariUsia + " ditemukan pada posisi " + (posisiUsia + 1));
+                        System.out.println("-------Data------");
+                        data.dataDosen[posisiUsia].tampil();
+                    } else {
+                        System.out.println("Data tidak ditemukan!");
+                    }
+                    break;
+                case 7:
                     System.exit(0);
                     break;
                 default:

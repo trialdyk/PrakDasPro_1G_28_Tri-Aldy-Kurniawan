@@ -44,4 +44,32 @@ public class DataDosen {
             dataDosen[i] = temp;
         }
     }
+
+    int sequentialSearch(String nama){
+        int posisi = -1;
+        int dataDitemukan = 0;
+        for(int j = 0; j < idx; j++){
+            if(dataDosen[j].nama.equalsIgnoreCase(nama)){
+                posisi = j;
+                dataDitemukan++;
+            }
+        }
+        if(dataDitemukan > 1) System.out.println("Lebih dari 1 data ditemukan, hanya mengambil data pertama!");
+        return posisi;
+    }
+
+    int binarySearch(int usia, int left, int right) {
+        int mid = (left + right) / 2;
+        if (left > right) return -1;
+        
+        if (dataDosen[mid].usia == usia) {
+            int l = mid, r = mid;
+            while (l > left && dataDosen[l - 1].usia == usia) l--;
+            while (r < right && dataDosen[r + 1].usia == usia) r++;
+            if (l != r) System.out.println("Peringatan: Data ditemukan lebih dari satu!,hanya mengambil data yang pertama!");
+            return mid;
+        } 
+        return dataDosen[mid].usia > usia ? binarySearch(usia, left, mid - 1) : binarySearch(usia, mid + 1, right);
+    }
+    
 }
