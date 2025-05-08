@@ -65,4 +65,16 @@ public class StackTugasMahasiswa27 {
         System.out.println("");
     }
 
+    public Mahasiswa27 peekBottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan.");
+            return null;
+        }
+    }
+
+    public int countTasks() {
+        return top + 1; 
+    }
 }
