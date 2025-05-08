@@ -1,13 +1,13 @@
 package AlgoritmaStrukturData.Pertemuan11;
-public class Queue {
-    int[] data;
+public class AntrianLayanan {
+    Mahasiswa[] data;
     int front;
     int rear;
     int size;
     int max;
-    public Queue(int n) {
+    public AntrianLayanan(int n) {
         max = n;
-        data = new int[max];
+        data = new Mahasiswa[max];
         size = 0;
         front = rear = -1;     
     }
@@ -28,23 +28,23 @@ public class Queue {
 
     public void peek() {
         if (!isEmpty()) {
-            System.out.println("Elemen terdepan: " + data[front]);
+            System.out.println("Mahasiswa Terdepan: ");
+            data[front].tampilkanData();
         } else {
-            System.out.println("Queue masih kosong");
+            System.out.println("Antrian masih kosong");
         }
     }
 
     public void print() {
         if (isEmpty()) { 
-            System.out.println("Queue masih kosong");
+            System.out.println("Antrian masih kosong");
         } else {
-            int i = front;
-            while (i != rear) { 
-                System.out.print(data[i] + " ");
-                i = (i + 1) % max;
-            }
-            System.out.println(data[i] + " "); 
-            System.out.println("Jumlah elemen = " + size); 
+            System.out.println("Daftar Antrian Mahasiswa");
+            for (int i = 0; i < size; i++) {
+                int index = (front + i) % max;
+                System.out.print((i + 1) + ". ");
+                data[index].tampilkanData();
+            } 
         }
     }
 
@@ -52,15 +52,15 @@ public class Queue {
         if (!isEmpty()) {
             front = rear = -1;
             size = 0;
-            System.out.println("Queue berhasil dikosongkan");
+            System.out.println("Antrian berhasil dikosongkan");
         } else {
-            System.out.println("Queue masih kosong");
+            System.out.println("Antrian masih kosong");
         }
     }
 
-    public void enqueue(int dt) { 
+    public void enqueue(Mahasiswa mhs) { 
         if (isFull()) {
-            System.out.println("Queue sudah penuh");
+            System.out.println("Antrian sudah penuh");
             System.exit(1);
         } else {
             if (isEmpty()) {
@@ -72,18 +72,18 @@ public class Queue {
                     rear++;
                 }
             }
-            data[rear] = dt;
+            data[rear] = mhs;
             size++;
         }
     }
 
-    public int dequeue() {
-        int dt = 0; 
+    public Mahasiswa dequeue() {
+        Mahasiswa mhs = null; 
         if (isEmpty()) { 
-            System.out.println("Queue masih kosong");
+            System.out.println("Antrian masih kosong");
             System.exit(1);
         } else {
-            dt = data[front];
+            mhs = data[front];
             size--;
             if (isEmpty()) { 
                 front = rear = -1;
@@ -95,6 +95,19 @@ public class Queue {
                 }
             }
         }
-        return dt;
+        return mhs;
+    }
+
+    public int getJumlahAntrian() {
+        return size;
+    }
+
+    public Mahasiswa antrianTerakhir() {
+        if (isEmpty()) {
+            System.out.println("Antrian masih kosong");
+            return null;
+        } else {
+            return data[rear];
+        }
     }
 }

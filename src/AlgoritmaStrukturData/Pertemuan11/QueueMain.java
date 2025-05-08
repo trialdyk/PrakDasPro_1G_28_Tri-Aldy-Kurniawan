@@ -19,7 +19,7 @@ public class QueueMain {
         System.out.print("Masukkan kapasitas queue: "); 
         int n = sc.nextInt(); 
 
-        Queue Q = new Queue(n); 
+        AntrianLayanan Q = new AntrianLayanan(n); 
 
         int pilih; 
         do { 
