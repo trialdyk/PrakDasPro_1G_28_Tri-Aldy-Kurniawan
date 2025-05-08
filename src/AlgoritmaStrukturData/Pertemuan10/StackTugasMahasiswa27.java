@@ -1,7 +1,4 @@
 package AlgoritmaStrukturData.Pertemuan10;
-
-import AlgoritmaStrukturData.Pertemuan5.Mahasiswa;
-
 public class StackTugasMahasiswa27 {
     Mahasiswa27[] stack;
     int size;
@@ -76,5 +73,20 @@ public class StackTugasMahasiswa27 {
 
     public int countTasks() {
         return top + 1; 
+    }
+
+    public String konversiDesimalKeBiner(int nilai) { 
+        StackKonversi27 stackKonversi = new StackKonversi27(); 
+        while (nilai > 0) { 
+            int sisa = nilai % 2;
+            stackKonversi.push(sisa);
+            nilai = nilai / 2;
+        }
+    
+        String biner = ""; 
+        while (!stackKonversi.isEmpty()) { 
+            biner += stackKonversi.pop();
+        }
+        return biner.isEmpty() ? "0" : biner;
     }
 }
