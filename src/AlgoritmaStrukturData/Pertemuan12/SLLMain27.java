@@ -41,5 +41,17 @@ public class SLLMain27 {
         ssl.insertAt(2, mahasiswa2);
         ssl.print();
         scanner.close();
+
+        System.out.println("Data Index 1 : ");
+        ssl.getData(1);
+
+        System.out.println(" Data Mahasiswa yang bernama Bimon Berada Pada Index : "+ssl.indexOf("Bimon"));
+        System.out.println();
+
+        ssl.removeFirst();
+        ssl.removeLast();
+        ssl.print();
+        ssl.removeAt(0);
+        ssl.print();
     }
 }
